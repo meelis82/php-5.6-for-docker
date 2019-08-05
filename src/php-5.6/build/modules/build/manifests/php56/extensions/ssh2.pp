@@ -26,32 +26,32 @@ class build::php56::extensions::ssh2 {
   }
 
 
-  file { '/tmp/ssh2-1.1.2.tgz':
+  file { '/tmp/ssh2-0.13.tgz':
     ensure => present,
-    source => 'puppet:///modules/build/tmp/ssh2-1.1.2.tgz',
+    source => 'puppet:///modules/build/tmp/ssh2-0.13.tgz',
     require => Bash_exec['cd /tmp/libssh2-1.9.0 && make install']
   }
 
-  bash_exec { 'cd /tmp && tar xzf ssh2-1.1.2.tgz':
-    require => File['/tmp/ssh2-1.1.2.tgz']
+  bash_exec { 'cd /tmp && tar xzf ssh2-0.13.tgz':
+    require => File['/tmp/ssh2-0.13.tgz']
   }
 
-  bash_exec { 'cd /tmp/ssh2-1.1.2 && phpize-5.6.40':
-    require => Bash_exec['cd /tmp && tar xzf ssh2-1.1.2.tgz']
+  bash_exec { 'cd /tmp/ssh2-0.13 && phpize-5.6.40':
+    require => Bash_exec['cd /tmp && tar xzf ssh2-0.13.tgz']
   }
 
-  bash_exec { 'cd /tmp/ssh2-1.1.2 && ./configure --with-ssh2':
+  bash_exec { 'cd /tmp/ssh2-0.13 && ./configure --with-ssh2':
     timeout => 0,
-    require => Bash_exec['cd /tmp/ssh2-1.1.2 && phpize-5.6.40']
+    require => Bash_exec['cd /tmp/ssh2-0.13 && phpize-5.6.40']
   }
 
-  bash_exec { 'cd /tmp/ssh2-1.1.2 && make':
+  bash_exec { 'cd /tmp/ssh2-0.13 && make':
     timeout => 0,
-    require => Bash_exec['cd /tmp/ssh2-1.1.2 && ./configure --with-ssh2']
+    require => Bash_exec['cd /tmp/ssh2-0.13 && ./configure --with-ssh2']
   }
 
-  bash_exec { 'cd /tmp/ssh2-1.1.2 && make install':
+  bash_exec { 'cd /tmp/ssh2-0.13 && make install':
     timeout => 0,
-    require => Bash_exec['cd /tmp/ssh2-1.1.2 && make']
+    require => Bash_exec['cd /tmp/ssh2-0.13 && make']
   }
 }
