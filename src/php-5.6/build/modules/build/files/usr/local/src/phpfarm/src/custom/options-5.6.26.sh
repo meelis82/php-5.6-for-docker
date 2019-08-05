@@ -33,7 +33,7 @@ configoptions="--with-libdir=/lib/x86_64-linux-gnu \
   --with-gettext \
   --with-pspell \
   --with-ldap=/usr \
-  --with-config-file-scan-dir=/usr/local/src/phpfarm/inst/php-5.6.26/etc/conf.d \
+  --with-config-file-scan-dir=/usr/local/src/phpfarm/inst/php-5.6.40/etc/conf.d \
   --with-mssql=/usr/local/freetds \
   --with-readline \
   --with-freetype-dir \
