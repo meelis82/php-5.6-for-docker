@@ -12,13 +12,21 @@ class build::php56 {
 
   bash_exec { 'mkdir -p /usr/local/src/phpfarm/inst/php-5.6.40/lib/php/extensions/no-debug-non-zts-20131226': }
 
+  file { '/usr/include/curl':
+    ensure => link,
+    target => '/usr/include/x86_64-linux-gnu/curl',
+  }
+
   file { '/tmp/php-5.6.40.tar.gz':
     ensure => present,
     source => 'puppet:///modules/build/tmp/php-5.6.40.tar.gz'
   }
 
   bash_exec { 'cd /tmp && tar xzf php-5.6.40.tar.gz':
-    require => File['/tmp/php-5.6.40.tar.gz']
+    require => [
+        File['/tmp/php-5.6.40.tar.gz'],
+        File['/usr/include/curl']
+    ]
   }
 
   bash_exec { 'mv /tmp/php-5.6.40 /usr/local/src/phpfarm/src/php-5.6.40':

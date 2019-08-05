@@ -54,4 +54,11 @@ class build::php56::extensions::ssh2 {
     timeout => 0,
     require => Bash_exec['cd /tmp/ssh2-0.13 && make']
   }
+
+    file { '/usr/local/src/phpfarm/inst/current/etc/conf.d/ssh2.ini':
+      ensure => present,
+      source => 'puppet:///modules/build/usr/local/src/phpfarm/inst/current/etc/conf.d/ssh2.ini',
+      mode => "644",
+      require => Bash_exec['cd /tmp/ssh2-0.13 && make install']
+    }
 }
