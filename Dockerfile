@@ -1,8 +1,8 @@
-FROM dockerizedrupal/base-debian-jessie:2.0.0
+FROM meelis82/base-debian-bionic-for-docker:latest
 
-MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
+MAINTAINER Meelis Valgeväli <meelis82@gmail.com>
 
-LABEL vendor=dockerizedrupal.com
+LABEL vendor=adm.ee
 
 ENV TERM xterm
 
