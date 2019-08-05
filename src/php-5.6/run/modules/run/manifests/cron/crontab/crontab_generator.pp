@@ -4,6 +4,6 @@ class run::cron::crontab::crontab_generator {
   file { '/usr/local/bin/crontab_generator':
     ensure => present,
     content => template('run/crontab_generator.sh.erb'),
-    mode => 755
+    mode => "755"
   }
 }

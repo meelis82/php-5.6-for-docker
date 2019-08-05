@@ -2,7 +2,7 @@ class run::php56 {
   file { '/usr/local/src/phpfarm/inst/current/etc/pool.d/www.conf':
     ensure => present,
     content => template('run/www.conf.erb'),
-    mode => 644
+    mode => "644"
   }
 
   include run::php56::ini::realpath_cache_size

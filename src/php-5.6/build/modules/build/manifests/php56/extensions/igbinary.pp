@@ -32,7 +32,7 @@ class build::php56::extensions::igbinary {
   file { '/usr/local/src/phpfarm/inst/current/etc/conf.d/igbinary.ini':
     ensure => present,
     source => 'puppet:///modules/build/usr/local/src/phpfarm/inst/current/etc/conf.d/igbinary.ini',
-    mode => 644,
+    mode => "644",
     require => Bash_exec['cd /tmp/igbinary-1.2.1 && make install']
   }
 }

@@ -20,6 +20,6 @@ class build::phpfarm {
   file { '/etc/profile.d/phpfarm.sh':
     ensure => present,
     source => 'puppet:///modules/build/etc/profile.d/phpfarm.sh',
-    mode => 755
+    mode => "755"
   }
 }

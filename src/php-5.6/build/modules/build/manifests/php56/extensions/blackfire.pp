@@ -13,7 +13,7 @@ class build::php56::extensions::blackfire {
   file { '/etc/apt/sources.list.d/blackfire.list':
     ensure => present,
     source => 'puppet:///modules/build/etc/apt/sources.list.d/blackfire.list',
-    mode => 644,
+    mode => "644",
     require => Bash_exec['curl -s https://packagecloud.io/gpg.key | apt-key add -']
   }
 

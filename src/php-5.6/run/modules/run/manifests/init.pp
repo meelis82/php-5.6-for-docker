@@ -35,6 +35,6 @@ class run {
   file { '/home/container/.bashrc':
     ensure => present,
     content => template('run/.bashrc.erb'),
-    mode => 644
+    mode => "644"
   }
 }

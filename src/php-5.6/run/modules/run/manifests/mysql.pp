@@ -4,6 +4,6 @@ class run::mysql {
   file { '/etc/supervisor/conf.d/mysql.conf':
     ensure => present,
     content => template('run/mysql.conf.erb'),
-    mode => 644
+    mode => "644"
   }
 }
